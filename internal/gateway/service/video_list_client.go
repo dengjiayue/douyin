@@ -41,30 +41,3 @@ func (s *VideoListClient) VideoList(req *video_list.RpcFeedRequest) (resp *video
 
 	return resp, nil
 }
-
-//下面不可用_______________________________________________________
-// // 继承接口
-// type IVideoListService interface {
-// 	//批量查询视频信息
-// 	VideoList(req *video_list.DouyinFeedRequest) (resp *video_list.DouyinFeedResponse, err error)
-// }
-
-// type VideoListService struct {
-// 	VideoListClient video_list.VideoListClient
-// }
-
-// // NewVideoListService 实例化
-// func NewVideoListService(videoListDB db.IVideoListDB) IVideoListService {
-// 	return videoListDB
-// }
-
-// // feed流查询视频信息
-// func (s *VideoListService) VideoList(req *video_list.DouyinFeedRequest) (resp *video_list.DouyinFeedResponse, err error) {
-
-// 	resp, err = s.VideoListClient.DouyinFeed(context.Background(), req)
-// 	if err != nil {
-// 		return nil, err
-// 	}
-
-// 	return resp, nil
-// }

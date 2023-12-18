@@ -10,7 +10,6 @@ import (
 )
 
 // 用户鉴权
-// 弃用:token放在body中,中间件不好操作,只能在处理中操作
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 从请求头中获取 Authorization 字段（JWT Token）

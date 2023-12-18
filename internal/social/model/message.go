@@ -26,7 +26,6 @@ func (message *Message) ToMessage() (messageData *social.Message) {
 	return &message.Message
 }
 
-// ---弃用---
 // 时间戳转换为时间字符串(mm-dd hh:mm)
 func (message *Message) TimeStampToString() (Time string) {
 	//时间戳(毫秒)转换为时间字符串

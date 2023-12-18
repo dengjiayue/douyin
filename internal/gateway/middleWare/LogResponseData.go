@@ -41,33 +41,6 @@ func LogResponseDataMiddleware(c *gin.Context) {
 	// 重置请求主体数据
 	c.Request.Body = ioutil.NopCloser(bytes.NewBuffer(reqbody))
 
-	// err := c.Request.ParseMultipartForm(32 << 20) // 32 MB limit for file size
-	// if err != nil {
-	// 	logger.Debugf("Error parsing multipart form:", err)
-	// 	return
-	// }
-	// c.Request.ParseForm()
-
-	// form, err := c.MultipartForm()
-	// c.Set("form", form)
-	// logger.Debugf("Request Form:%s\n", form)
-	// if err != nil {
-	// 	logger.Debugf("Error parsing multipart form:", err)
-
-	// } else {
-	// 	//查看form中的键值对
-	// 	for key, values := range form.Value {
-	// 		logger.Debugf("%s: %s", key, values)
-	// 	}
-	// 	//查看form中的文件的文件名与文件大小
-	// 	for _, values := range form.File {
-	// 		// logger.Debugf("%s: %s", key, values)
-	// 		for _, value := range values {
-	// 			logger.Debugf("%s: %s", value.Filename, value.Size)
-	// 		}
-	// 	}
-	// }
-
 	// 创建自定义 ResponseWriter 包装器
 	responseWithLog := &ResponseWithLog{
 		ResponseWriter: c.Writer,

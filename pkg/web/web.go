@@ -21,7 +21,6 @@ func NewWeb(addr string) *Web {
 
 func (s *Web) Start() {
 	logger.Debugf("web服务启动,监听地址:%s\n", s.addr)
-	// s.MaxMultipartMemory = 15 << 20 // 15 MiB
 	s.Run(s.addr)
 }
 

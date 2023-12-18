@@ -74,34 +74,6 @@ var _ ISocialDB = (*SocialDB)(nil)
 // 实例化
 func NewSocialDB(sql *db.Mysql, rds *db.Redis) (socialDB *SocialDB) {
 	socialDB = &SocialDB{db.NewDB(sql), db.NewRedisPool(rds)}
-
-	//已弃用______________________________________________________________________________________________________________________
-	// //将sql的聊天记录存入redis的有序集合中
-	// //1.查询所有聊天记录
-	// var messages []model.Message
-	// err := socialDB.db.Model(&model.Message{}).Find(&messages).Error
-	// if err != nil {
-	// 	logger.Errorf("消息同步失败 err:%v", err)
-	// }
-	// //构建数据插入的map{key:fromuser-touser,value:[]interface{}{time,message(序列化后的json数据....)}}
-	// messagesMap := make(map[string][]interface{})
-	// for i := 0; i < len(messages); i++ {
-	// 	//序列化message
-	// 	messageJson, err := jsoner.Marshal(&messages[i])
-	// 	if err != nil {
-	// 		logger.Errorf("序列化message失败 err:%v", err)
-	// 	}
-	// 	messagesMap[fmt.Sprintf("%d-%d", messages[i].FromUserId, messages[i].ToUserId)] = append(messagesMap[fmt.Sprintf("%d-%d", messages[i].FromUserId, messages[i].ToUserId)], messages[i].CreateTime, messageJson)
-	// }
-	// //2.遍历map,将数据插入redis的有序集合中
-	// for k, v := range messagesMap {
-	// 	//将k拼接到v的第一个位置
-	// 	v = append([]interface{}{k}, v...)
-	// 	_, err := socialDB.conn.Do("ZADD", v...)
-	// 	if err != nil {
-	// 		logger.Errorf("消息同步失败 err:%v", err)
-	// 	}
-	// }
 	return
 }
 

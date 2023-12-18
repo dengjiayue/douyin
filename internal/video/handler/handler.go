@@ -33,10 +33,7 @@ func (s *VideoHandler) DouyinPublishAction(req video.Video_DouyinPublishActionSe
 		logger.Errorf("上传视频publish/action: %s\n", err)
 		return err
 	}
-	// req.SendAndClose(&video.DouyinPublishActionResponse{
-	// 	StatusCode: 0,
-	// 	StatusMsg:  "上传视频成功",
-	// })
+
 	logger.Debugf("上传视频成功")
 	return nil
 }

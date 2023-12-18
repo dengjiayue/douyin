@@ -5,16 +5,6 @@ import (
 	"time"
 )
 
-// 定义comment表结构体
-// type Comment struct {
-// 	// 继承comment
-// 	*video.Comment
-// 	// 评论视频id
-// 	VideoId int64 `json:"video_id" gorm:"not null"`
-// 	// 评论人id
-// 	UserId int64 `json:"user_id" gorm:"not null"`
-// }
-
 // 定义comment表结构体,用于查询(create_time为时间戳 ,默认值为当前时间的时间戳)
 type CommentData struct {
 	//主键id:

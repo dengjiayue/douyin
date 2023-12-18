@@ -1,6 +1,6 @@
 package service
 
-//弃用测试!!!!!!!!!!!!!!!!!!!!!!!
+//-----------------------------------------------------弃用测试
 
 // func TestUserClient_RegisterUser(t *testing.T) {
 // 	config.Init("../../../configs/gateway.yaml")

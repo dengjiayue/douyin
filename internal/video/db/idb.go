@@ -158,17 +158,6 @@ func VideosInfo(videoDB *VideoDB, ids *[]int64) *[]model.VideoData {
 	return &videos
 }
 
-// 同步redis中的赞数到mysql中(redis为赞的增量,总数=redis+mysql)
-//考虑到数据及时性问题,暂时不采用定时任务,而是在点赞和取消点赞的时候同步
-// func SyncFavorite(videoDB *VideoDB) {
-// 	//从redis中获取视频id和赞数
-// 	vids, err := redis.Int64Map(videoDB.conn.Do("HGETALL", "video_favorite"))
-// 	if err != nil {
-// 		return
-// 	}
-
-// }
-
 // 上传视频publish/action
 // 1.上传视频到腾讯云cos(视频上传cos-> 获取视频封面+上传封面-> 获取视频播放地址+封面地址)-> 2.创建视频结构体数据-> 3.将视频信息存入数据库-> 4.将视频信息存入redis
 func (videoDB *VideoDB) PublishAction(req video.Video_DouyinPublishActionServer) (err error) {

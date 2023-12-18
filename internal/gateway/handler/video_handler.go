@@ -56,22 +56,6 @@ func (s *VideoHandler) DouyinPublishAction(c *gin.Context) {
 	req.Title = c.PostForm("title")
 	logger.Debugf("title: %s\n", req.Title)
 
-	//使用multipartForm获取参数--------------------------------------------弃用
-	// form, err := c.MultipartForm()
-	// if err != nil {
-	// 	logger.Errorf("参数异常: %s\n", err)
-	// 	return
-	// }
-	// data := form.File["data"][0]
-	// formtoken := form.Value["token"][0]
-	// logger.Debugf("formtoken: %s\n", formtoken)
-	// logger.Debugf("data: %s\n", data.Filename)
-	// title := form.Value["title"][0]
-	// logger.Debugf("title: %s\n", title)
-	// data, err = c.FormFile("data")
-	// //校验参数
-	// req.Title = title
-
 	//鉴权结果
 	uid, b := c.Get("user_id")
 	id := uid.(int64)

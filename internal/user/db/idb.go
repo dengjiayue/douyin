@@ -15,11 +15,11 @@ import (
 	"gorm.io/gorm"
 )
 
-var CHANGE_TYPE = []string{"favorite_count", "total_favorited", "follow_count", "follower_count", "work_count"}                                                                                                                                                                                                                                                                                                                                                                              //字段解释：点赞数(你点别人)，获赞赞数(别人点你)，关注数(你关注别人)，粉丝数(别人关注你),作品数(你发布的作品数)
-var ACTION_TYPE = []string{" + 1", " - 1"}                                                                                                                                                                                                                                                                                                                                                                                                                                                   //字段解释： 1-增加操作,2-取消操作
-var AVATAR = []string{"https://djy1-1306563712.cos.ap-shanghai.myqcloud.com/20230825005714.png", "https://cdn.pixabay.com/photo/2023/08/08/18/01/butterfly-8177925_1280.jpg", "https://cdn.pixabay.com/photo/2017/01/18/17/14/girl-1990347_1280.jpg", "https://cdn.pixabay.com/photo/2016/05/03/16/10/morning-1369446_1280.jpg", "https://cdn.pixabay.com/photo/2020/02/15/16/09/loveourplanet-4851331_1280.jpg", "https://cdn.pixabay.com/photo/2015/06/09/20/36/portrait-804062_1280.jpg"} //头像
-var BAKEGROUNDIMG = []string{"https://djy1-1306563712.cos.ap-shanghai.myqcloud.com/20230825005607.png", "https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_1280.jpg", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg", "https://cdn.pixabay.com/photo/2014/12/08/02/59/benches-560435_1280.jpg", "https://cdn.pixabay.com/photo/2015/12/27/21/11/beach-1110498_1280.jpg", "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_1280.jpg"}        //背景图
-var LENGTH = len(AVATAR)                                                                                                                                                                                                                                                                                                                                                                                                                                                                     //头像长度
+var CHANGE_TYPE = []string{"favorite_count", "total_favorited", "follow_count", "follower_count", "work_count"} //字段解释：点赞数(你点别人)，获赞赞数(别人点你)，关注数(你关注别人)，粉丝数(别人关注你),作品数(你发布的作品数)
+var ACTION_TYPE = []string{" + 1", " - 1"}                                                                      //字段解释： 1-增加操作,2-取消操作
+var AVATAR = []string{"https://djy1-1306563712.cos.ap-shanghai.myqcloud.com/20230825005714.png"}                //默认头像
+var BAKEGROUNDIMG = []string{"https://djy1-1306563712.cos.ap-shanghai.myqcloud.com/20230825005607.png"}         //默认背景图
+var LENGTH = len(AVATAR)                                                                                        //头像长度
 
 type IUserDB interface {
 	// 注册用户
@@ -331,28 +331,3 @@ func (userDB *UserDB) UserChange(req *user.DouyinUserChangeRequest) (err error) 
 	}
 	return nil
 }
-
-//暂时不可用!!!!!!!!!!!!!!!!!!!!!!!!!!
-// // redis批量查询用户信息
-// func UsersInfoByRedis(conn redis.Conn, ids []int64) ([]*user.User, error) {
-// 	lenth := len(ids)
-// 	users := make([]*user.User, lenth)
-
-// 	//循环查询
-// 	for i := 0; i < lenth; i++ {
-// 		userJSON, err := redis.Bytes(conn.Do("HGET", "users", ids[i]))
-// 		if err != nil {
-// 			logger.Errorf("查询失败:id=%d err= %v", ids[i], err)
-// 		}
-// 		//redis中有数据，解析json
-// 		err = jsoner.Unmarshal(userJSON, &users[i])
-// 		if err != nil {
-// 			logger.Errorf("查询失败:id=%d err= %v", ids[i], err)
-// 		}
-// 	}
-// 	//检查返回数据
-// 	logger.Debugf("查询成功: %v", users)
-// 	// 3. 用户存在，返回用户信息
-// 	return users, nil
-
-// }

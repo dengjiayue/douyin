@@ -11,6 +11,3 @@ type UserData struct {
 func (UserData) TableName() string {
 	return "users"
 }
-
-type UserDB struct {
-}
