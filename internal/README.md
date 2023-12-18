@@ -5,3 +5,4 @@ ab -n 80000 -c 3000 http://localhost:10000/douyin/feed/?token=eyJhbGciOiJIUzI1Ni
 
 ab -n 10000 -c 2000 "http://localhost:10000/douyin/favorite/list/?user_id=10&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2OTQwOTE4MTEsImlzcyI6ImRlbmdqaWF5dWUifQ.drwucYyI6jOmHoTCLlACl3b6MZt6C2-obHnSPwit1fQ"
 ```
+# 服务端功能实现

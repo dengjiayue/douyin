@@ -1,4 +1,4 @@
-
+# 解决photo文件转go文件出现的部分问题
 
 * 更改video_list的go文件
 将video_list.go中video类的VideoAuthor字段
