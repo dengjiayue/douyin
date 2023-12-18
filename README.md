@@ -74,7 +74,7 @@ go run cmd/gateway/main.go -c configs/gateway.yaml
 
 ```
 
-## 如何生成 pb 代码?
+## 如何生成 pb 代码
 
 ```bash
 protoc -I ./api --go_out=./api --go-grpc_out=./api api/proto/*.proto
@@ -93,7 +93,7 @@ GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -ldflags="-s -w" -o /root/gop1/do
 
 发送到服务器:
 ```cmd
-scp -r /root/gop1/douyinapp/cmd djy@djy.bmft.tech:/home/djy/douyinapp
+scp -r /root/gop1/douyinapp/cmd djy@ :/home/djy/douyinapp
 ```
 
 启动服务:
